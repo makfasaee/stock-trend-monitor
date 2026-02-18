@@ -1,0 +1,15 @@
+[Unit]
+Description=StockWatch Daily Digest (one-shot run)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/stockwatch
+ExecStart=docker compose -f /opt/stockwatch/docker-compose.yml run --rm app python -m stockwatch run
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=stockwatch
+
+[Install]
+WantedBy=multi-user.target

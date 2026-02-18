@@ -1,0 +1,12 @@
+[Unit]
+Description=StockWatch Daily Digest Timer
+Requires=stockwatch.service
+
+[Timer]
+# Run Mon–Fri at 4:30 PM Eastern
+OnCalendar=Mon-Fri 16:30:00 America/New_York
+Persistent=true
+Unit=stockwatch.service
+
+[Install]
+WantedBy=timers.target

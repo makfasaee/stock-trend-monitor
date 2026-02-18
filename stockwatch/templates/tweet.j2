@@ -1,0 +1,7 @@
+📊 StockWatch {{ d.run_date }} — {{ d.total }} tickers
+🟢 Up: {{ d.uptrend_count }} | 🔴 Down: {{ d.downtrend_count }} | ⬜ Side: {{ d.sideways_count }}
+{% if d.top_gainers %}🏆 Top gainer: ${{ d.top_gainers[0].ticker }} +{{ "%.1f"|format(d.top_gainers[0].return_1d * 100) }}%{% endif %}
+
+{% if d.top_losers %}📉 Top loser: ${{ d.top_losers[0].ticker }} {{ "%.1f"|format(d.top_losers[0].return_1d * 100) }}%{% endif %}
+
+#stocks #investing #StockWatch

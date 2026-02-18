@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./config:/app/config:ro
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    command: scheduler
+
+  backup:
+    build: .
+    env_file: .env
+    volumes:
+      - ./data:/app/data:ro
+    profiles:
+      - backup
+    entrypoint: ["sh", "/app/scripts/backup.sh"]

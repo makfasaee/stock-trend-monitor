@@ -1,0 +1,45 @@
+[watchlist]
+tickers = [
+    "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA",
+    "META", "TSLA", "BRK-B", "UNH", "LLY",
+    "JPM", "V", "AVGO", "XOM", "PG",
+    "MA", "HD", "CVX", "MRK", "ABBV",
+    "COST", "PEP", "ADBE", "KO", "WMT",
+    "BAC", "MCD", "CRM", "ACN", "LIN",
+    "TMO", "CSCO", "ABT", "NFLX", "DIS",
+    "AMD", "TXN", "INTC", "QCOM", "INTU",
+    "SPY", "QQQ", "IWM", "DIA",
+]
+
+[thresholds]
+uptrend_min = 62.0
+downtrend_max = 38.0
+volume_anomaly_multiplier = 2.0
+top_movers_count = 5
+
+[indicators]
+ma_short = 20
+ma_long = 50
+rsi_period = 14
+return_periods = [1, 5, 20]
+volatility_period = 20
+backfill_days = 252
+
+[scheduling]
+run_hour = 16
+run_minute = 30
+run_timezone = "America/New_York"
+market_calendar = "NYSE"
+misfire_grace_seconds = 3600
+
+[digest]
+max_tweet_chars = 280
+top_movers_count = 5
+
+[healthcheck]
+port = 8080
+host = "0.0.0.0"
+
+[logging]
+level = "INFO"
+format = "json"
